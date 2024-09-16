@@ -1,0 +1,33 @@
+\chapter{Further background on variance}
+
+Variance is a measure of dispersion - or spread - of a distribution and is defined as the expected squared deviation from the mean. Given random variable $X \sim \mathcal{F}$, the variance of $X$ is given by $\mathbb{V}[X] = \mathbb{E}\left[ (X-\mathbb{E}[X])^2 \right]$. Conversely to the expectation, variance is a non-linear operator. Given two random variables $X \sim \mathcal{F}_X$ and $Y \sim \mathcal{F}_Y$: 
+\begin{equation}
+\begin{aligned}
+\mathbb{V}[X+Y] & = \mathbb{E}\left[ (X+Y - \mathbb{E}[X+Y])^2\right] \\
+& = \mathbb{E} \left[ (X - \mathbb{E}[X])^2\right] + \mathbb{E} \left[ (Y - \mathbb{E}[Y])^2\right] + 2 \, \mathbb{E}\left[ (X - \mathbb{E}[X])(Y-\mathbb{E}[Y]) \right] \\
+& = \mathbb{V}[X] + \mathbb{V}[Y] + 2 \, \mathbb{C}\text{ov}[X,Y]
+\end{aligned}
+%(\#eq:vardef)
+\end{equation}
+
+by linearity of the expectation. The last term is called the covariance between $X$ and $Y$ and is a measure of linear association between two random variables. Trivially, the covariance between $X$ and $X$ is the variance of $X$.
+
+These quantities serve as the basis for most statistical models. Normalizing covariance by the square-root of the variance of $X$ and $Y$ yields the Pearson correlation coefficient $\rho_{X,Y}$ that is often preferred as a summary measure of linear association since it can be compared between random variables with different scales. In regression, other common measure of association between the response $Y$ and one or more predictors $X_{1:k}$ includes the coefficient of determination $R^2$ measuring the proportion of the variance of $Y$ that is predicted by $X_{1:k}$.
+
+In practice, one often assumed that observed data samples $\{(x_{1},y_{1}),...,(x_n,y_n)\}$ are independent draws from some joint distribution. Then, assuming that the mean and covariance of the distribution are finite, the following provide the sample estimates of the variance of the marginal distributions $\hat{\mathbb{V}}$ and the covariance of the joint distribution $\hat{\mathbb{C}\text{ov}}$:
+
+\begin{equation}
+\begin{aligned}
+\hat{\mathbb{V}}[\{x_{1:n}\}] &= \frac{1}{n-1} \sum_{i=1}^n \left( x_i - \bar{x} \right)^2 \\
+\hat{\mathbb{C}\text{ov}}[\{x_{1:n}\},\{y_{1:n}\}] &= \frac{1}{n-1} \sum_{i=1}^n ( x_i - \bar{x})(y_i - \bar{y})
+\end{aligned}
+%(\#eq:samplevar)
+\end{equation}
+
+where $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$ is the sample mean of $X$. Note the normalizing factor $n-1$ that ensures the estimate is unbiased - in repeated sampling, the average estimates equal the true quantity. 
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "MasterThesisSfS"
+%%% End: 

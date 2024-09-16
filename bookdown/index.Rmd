@@ -1,0 +1,35 @@
+--- 
+title: "Investigating year-to-year variability of hot extremes and contributions from heat-generating mechanisms"
+author: "Marco Froelich (22-942-601)"
+date: "September 2024"
+submission_date: "September 16th, 2024"
+adviser: "Prof. Dr. Nicolai Meinshausen"
+coadviser: "Dr. Matthias Rothlisberger"
+output:
+  bookdown::epub_book:
+    default
+  bookdown::pdf_book:
+    template: tex/MasterThesisSfS.tex
+    keep_tex: yes
+    pandoc_args: --top-level-division=chapter
+    citation_package: natbib
+    biblio-style: apalike
+    latex_engine: pdflatex
+    toc_depth: 3
+    toc_unnumbered: no
+    toc_appendix: yes
+    toc_bib: yes
+    quote_footer: ["\\begin{flushright}", "\\end{flushright}"]
+    highlight: 
+      tango
+    includes:
+      in_header: tex/preamble.tex
+  bookdown::gitbook: default
+bibliography: bib/bib.bib
+link-citations: yes
+colorlinks: no  
+lot: no
+lof: no
+site: bookdown::bookdown_site
+---
+ 
